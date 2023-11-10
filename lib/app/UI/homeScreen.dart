@@ -18,7 +18,7 @@ class _MyHomePageState extends State<HomeScreen> {
 void _validateInput(String text) {
     setState(() {
       isButtonEnabled = false;
-      String specificText = "uau";
+      String specificText = "";
       isButtonEnabled = text == specificText;
     });
   }

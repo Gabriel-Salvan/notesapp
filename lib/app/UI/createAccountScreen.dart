@@ -7,11 +7,10 @@ class CreateAccountScreen extends StatefulWidget {
   const CreateAccountScreen({super.key});
 
   @override
-  _TextSaverWidgetState createState() => _TextSaverWidgetState();
+  _CreateAccountScreenState createState() => _CreateAccountScreenState();
 }
 
-class _TextSaverWidgetState extends State<CreateAccountScreen> {
-  String savedText = "";
+class _CreateAccountScreenState extends State<CreateAccountScreen> {
 
   TextEditingController textController = TextEditingController();
 @override
@@ -19,7 +18,11 @@ class _TextSaverWidgetState extends State<CreateAccountScreen> {
     textController.dispose();
     super.dispose();
   }
-  
+void _saveUsername() {
+    String username = textController.text;
+    ("Username saved: $username");
+}
+
   @override
   Widget build(BuildContext context){
     return
@@ -39,6 +42,7 @@ class _TextSaverWidgetState extends State<CreateAccountScreen> {
           Padding(padding: EdgeInsets.all(
             MediaQuery.of(context).size.width*0.03),
                   child:TextFormField(
+                    controller: textController,
                     decoration: const InputDecoration(
                       labelText: "Username"),)),
           Text("You can't change your username later on", 
@@ -46,23 +50,16 @@ class _TextSaverWidgetState extends State<CreateAccountScreen> {
             color: Colors.black, 
             fontWeight: FontWeight.bold,
             fontSize: MediaQuery.of(context).size.width*0.02)),
-          Padding(padding: EdgeInsets.only(
-              top: MediaQuery.of(context).size.width * 0.03,
-              left: MediaQuery.of(context).size.width * 0.03,
-              right:MediaQuery.of(context).size.width*0.03),
-            child:ElevatedButton(onPressed: (){
-              Navigator.pop(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));},
-              child: Text("Return",
-                style:TextStyle(
-                  fontSize:MediaQuery.of(context).size.width*0.05)))),
           Padding(
             padding: EdgeInsets.only(
                 top: MediaQuery.of(context).size.width * 0.03,
                 left: MediaQuery.of(context).size.width * 0.03,
                 right: MediaQuery.of(context).size.width * 0.03),
             child: ElevatedButton(
-                onPressed: () {setState(() {
-                savedText = textController.text;});},
+                onPressed: () {
+                  _saveUsername();
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => const HomeScreen()),);
+                },
                 child: Text("Save",
                     style: TextStyle(
                         fontSize: MediaQuery.of(context).size.width * 0.05))))
