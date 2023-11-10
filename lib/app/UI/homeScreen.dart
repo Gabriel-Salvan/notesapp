@@ -70,7 +70,7 @@ void _onButtonPressed() {
       SizedBox(height: MediaQuery.of(context).size.height * 0.1),
       ElevatedButton(
           onPressed: (){
-            Navigator.pop(context, MaterialPageRoute(builder:(context) => const CreateAccountScreen()));},
+            Navigator.push(context, MaterialPageRoute(builder:(context) => const CreateAccountScreen()));},
           child: Text('Create Account',
               style: TextStyle(
                   fontSize: MediaQuery.of(context).size.width * 0.04,

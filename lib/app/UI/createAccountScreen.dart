@@ -58,7 +58,7 @@ void _saveUsername() {
             child: ElevatedButton(
                 onPressed: () {
                   _saveUsername();
-                  Navigator.push(context,MaterialPageRoute(builder: (context) => const HomeScreen()),);
+                  Navigator.pop(context,MaterialPageRoute(builder: (context) => const HomeScreen(username: username)),);
                 },
                 child: Text("Save",
                     style: TextStyle(
