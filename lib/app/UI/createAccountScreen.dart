@@ -14,7 +14,12 @@ class _TextSaverWidgetState extends State<CreateAccountScreen> {
   String savedText = "";
 
   TextEditingController textController = TextEditingController();
-
+@override
+  void dispose() {
+    textController.dispose();
+    super.dispose();
+  }
+  
   @override
   Widget build(BuildContext context){
     return
