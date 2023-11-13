@@ -11,46 +11,48 @@ class CreateAccountScreen extends StatefulWidget {
 }
 
 class _CreateAccountScreenState extends State<CreateAccountScreen> {
-
   TextEditingController textController = TextEditingController();
-@override
+  @override
   void dispose() {
     textController.dispose();
     super.dispose();
   }
-void _saveUsername() {
+
+  void _saveUsername() {
     String username = textController.text;
     ("Username saved: $username");
-}
+  }
 
   @override
-  Widget build(BuildContext context){
-    return
-    Scaffold(
-      body:
-      SingleChildScrollView(
-        child: Column(children: [
-          Padding(padding: EdgeInsets.only(
-              top:MediaQuery.of(context).size.width*0.03,
-              left:MediaQuery.of(context).size.width*0.03,
-              right: MediaQuery.of(context).size.width*0.03),
-            child: Text("Create an Account",
-              style: TextStyle(
-                color:Colors.black,
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: SingleChildScrollView(
+      child: Column(children: [
+        Padding(
+          padding: EdgeInsets.only(
+              top: MediaQuery.of(context).size.width * 0.03,
+              left: MediaQuery.of(context).size.width * 0.03,
+              right: MediaQuery.of(context).size.width * 0.03),
+          child: Text(
+            "Create an Account",
+            style: TextStyle(
+                color: Colors.black,
                 fontWeight: FontWeight.bold,
-                fontSize: MediaQuery.of(context).size.width*0.06),),),
-          Padding(padding: EdgeInsets.all(
-            MediaQuery.of(context).size.width*0.03),
-                  child:TextFormField(
-                    controller: textController,
-                    decoration: const InputDecoration(
-                      labelText: "Username"),)),
-          Text("You can't change your username later on", 
-           style: TextStyle(
-            color: Colors.black, 
-            fontWeight: FontWeight.bold,
-            fontSize: MediaQuery.of(context).size.width*0.02)),
-          Padding(
+                fontSize: MediaQuery.of(context).size.width * 0.06),
+          ),
+        ),
+        Padding(
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.03),
+            child: TextFormField(
+              controller: textController,
+              decoration: const InputDecoration(labelText: "Username"),
+            )),
+        Text("You can't change your username later on",
+            style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: MediaQuery.of(context).size.width * 0.02)),
+        Padding(
             padding: EdgeInsets.only(
                 top: MediaQuery.of(context).size.width * 0.03,
                 left: MediaQuery.of(context).size.width * 0.03,
@@ -58,13 +60,17 @@ void _saveUsername() {
             child: ElevatedButton(
                 onPressed: () {
                   _saveUsername();
-                  Navigator.pop(context,MaterialPageRoute(builder: (context) => const HomeScreen(username: username)),);
+                  Navigator.pop(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            const HomeScreen()),
+                  );
                 },
                 child: Text("Save",
                     style: TextStyle(
                         fontSize: MediaQuery.of(context).size.width * 0.05))))
-        ]),)
-    )
-    ;
+      ]),
+    ));
   }
 }

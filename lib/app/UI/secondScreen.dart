@@ -18,7 +18,8 @@ class SecondScreen extends StatelessWidget {
               top: MediaQuery.of(context).size.height * 0.1),
           child: ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pop(MaterialPageRoute (builder: ((context) => const HomeScreen())));
+                Navigator.of(context).pop(MaterialPageRoute(
+                    builder: ((context) => const HomeScreen())));
               },
               child: const Icon(Icons.logout))),
       Padding(
@@ -48,4 +49,3 @@ class SecondScreen extends StatelessWidget {
     ])));
   }
 }
-
