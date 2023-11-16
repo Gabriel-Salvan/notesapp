@@ -4,14 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:notesapp/app/UI/homeScreen.dart';
 
 class CreateAccountScreen extends StatefulWidget {
-  const CreateAccountScreen({super.key});
-
+  final String username;
+  
+  const CreateAccountScreen({Key? key, required this.username}): super(key: key);
   @override
   _CreateAccountScreenState createState() => _CreateAccountScreenState();
 }
 
 class _CreateAccountScreenState extends State<CreateAccountScreen> {
   TextEditingController textController = TextEditingController();
+  late String username;
   @override
   void dispose() {
     textController.dispose();
@@ -21,6 +23,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   void _saveUsername() {
     String username = textController.text;
     ("Username saved: $username");
+    Navigator.pop(
+      context,MaterialPageRoute(builder: (context) => HomeScreen(username: username),),);
   }
 
   @override
@@ -64,7 +68,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            const HomeScreen()),
+                              HomeScreen(username: '$username')),
                   );
                 },
                 child: Text("Save",

@@ -17,9 +17,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: darkBlue,),
       debugShowCheckedModeBanner: false,
-      home: const Scaffold(
+      home:  const Scaffold(
         body: Center(
-          child: HomeScreen(),
+          child: HomeScreen(username: '',),
         ),
       ),
     );
