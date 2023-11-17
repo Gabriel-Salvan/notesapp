@@ -6,9 +6,8 @@ import 'createAccountScreen.dart';
 import 'secondScreen.dart';
 
 class HomeScreen extends StatefulWidget {
-  final String username;
   
-  const HomeScreen({Key? key, required this.username}) : super(key: key);
+  const HomeScreen({super.key}) ;
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -16,21 +15,14 @@ class HomeScreen extends StatefulWidget {
 class _MyHomePageState extends State<HomeScreen> {
   final TextEditingController _textEditingController = TextEditingController();
   bool isButtonEnabled = false;
-  late String username;
 
   void _validateInput(String text) {
     setState(() {
       isButtonEnabled = false;
-      String username= '$username';
+      String username= 'Gabriel Salvan';
       isButtonEnabled = text == username;
     });
   }
-@override
-  void initState() {
-    super.initState();
-    username = widget.username; 
-  }
-
 
   void _onButtonPressed() {
     if (isButtonEnabled) {
@@ -84,7 +76,7 @@ class _MyHomePageState extends State<HomeScreen> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => CreateAccountScreen()));
+                    builder: (context) => const CreateAccountScreen()));
           },
           child: Text('Create Account',
               style: TextStyle(

@@ -19,7 +19,7 @@ class SecondScreen extends StatelessWidget {
           child: ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pop(MaterialPageRoute(
-                    builder: ((context) => const HomeScreen(username: '',))));
+                    builder: ((context) => const HomeScreen())));
               },
               child: const Icon(Icons.logout))),
       Padding(
