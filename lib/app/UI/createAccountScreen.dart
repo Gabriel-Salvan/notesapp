@@ -24,7 +24,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
     String username = textController.text;
     ("Username saved: $username");
     Navigator.pop(
-      context,MaterialPageRoute(builder: (context) => HomeScreen(username: username),),);
+      context,MaterialPageRoute(builder: (context) => HomeScreen(username: '$username'),),);
   }
 
   @override
@@ -68,7 +68,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                              HomeScreen(username: '$username')),
+                              HomeScreen()),
                   );
                 },
                 child: Text("Save",

@@ -21,7 +21,7 @@ class _MyHomePageState extends State<HomeScreen> {
   void _validateInput(String text) {
     setState(() {
       isButtonEnabled = false;
-      String username= widget.username;
+      String username= '$username';
       isButtonEnabled = text == username;
     });
   }
@@ -84,7 +84,7 @@ class _MyHomePageState extends State<HomeScreen> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => CreateAccountScreen(username: '$username')));
+                    builder: (context) => CreateAccountScreen()));
           },
           child: Text('Create Account',
               style: TextStyle(
